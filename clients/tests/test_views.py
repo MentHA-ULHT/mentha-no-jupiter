@@ -8,7 +8,7 @@ class TestViews(TestCase):
 		self.index_url = reverse('index')
 
 
-	def test_project_list_GET(self):
+	def test_project_index_GET(self):
 		response = self.client.get(self.index_url)
 
 		self.assertEquals(response.status_code, 200)
