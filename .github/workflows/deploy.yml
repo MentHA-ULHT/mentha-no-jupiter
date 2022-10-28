@@ -17,7 +17,8 @@ jobs:
             whoami
             cd ${{ secrets.SERVER_PROJECT_PATH }}
             git pull
-            source ../env/bin/activate
+            source /home/leda/MentHA/env/bin/activate
+            cd ${{ secrets.SERVER_PROJECT_PATH }}
             pip install -r ./requirements.txt
             python ./manage.py makemigrations
             python ./manage.py migrate
