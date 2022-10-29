@@ -14,6 +14,7 @@ jobs:
           password: ${{ secrets.SERVER_USER_PASSWORD }}
           port: ${{ secrets.SERVER_SSH_PORT }}
           script: |
+            whoami
             cd ${{ secrets.SERVER_PROJECT_PATH }}
             git pull
             source ../env/bin/activate
