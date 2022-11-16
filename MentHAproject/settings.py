@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&jfct!(mr#*b1s2z#w9x%%s7e^$6f5)yk)o!+!8xm9vrvhf851
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jupiter.ulusofona.pt']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','jupiter.ulusofona.pt']
 
 # Application definition
 
@@ -36,7 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'clients'
+    # 'cloudinary_storage',   # cloudinary
+    # 'cloudinary',           # cloudinary
+    'clients',
+    'mentha',
 ]
 
 MIDDLEWARE = [
@@ -103,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt'
 
 TIME_ZONE = 'UTC'
 
@@ -115,7 +118,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/mentha/static/'
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('mentha/static'))]  # novo
+
+
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))   # novo
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # novo
+
+
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# media files
+import os
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
+
+# CLOUDINARY_STORAGE = {
+#   'CLOUD_NAME': "ulht",
+#   'API_KEY': "189155827297577",
+#   'API_SECRET': "nA3GnIIlqqmhAn_OE1jE4oXSvwc",
+# }
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -124,7 +146,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-
 
 try:
     from .local_settings import *
