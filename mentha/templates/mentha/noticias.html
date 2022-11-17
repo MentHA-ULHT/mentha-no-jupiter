@@ -21,7 +21,8 @@
             <div class="right">({{ noticia.data }})</div>
         </div>
         <div class="noticia">
-            <div class="texto">{{ noticia.texto|linebreaks }}</div>
+            {% load markdownify %}
+            <div class="texto">{{ noticia.texto|markdownify }}</div>
             
             {% if noticia.imagem %}
                 <div class="imagem"> <img src="{{ noticia.imagem.url }}" alt=""> </div>
