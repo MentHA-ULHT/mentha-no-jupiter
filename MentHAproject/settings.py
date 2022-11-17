@@ -122,8 +122,6 @@ USE_TZ = True
 
 STATIC_URL = '/mentha/static/'
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('mentha/static'))]  # novo
-
-
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))   # novo
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # novo
 
@@ -146,8 +144,6 @@ MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 try:
     from .local_settings import *
