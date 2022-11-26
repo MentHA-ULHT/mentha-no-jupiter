@@ -24,15 +24,16 @@
             {% load markdownify %}
             <div class="texto">{{ noticia.texto|markdownify }}</div>
             
-            {% if noticia.imagem %}
-                <div class="imagem"> <img src="{{ noticia.imagem.url }}" alt=""> </div>
-            {% endif %}
-            
             {% if noticia.url  %}
                 <div class="referencia">         
                     Para saber mais: <span class="url"><b><a href="{{ noticia.url }}">Link</a></b></span>                  
                 </div>
             {% endif %}
+        
+            {% if noticia.imagem %}
+                <div class="imagem"> <img src="{{ noticia.imagem.url }}" alt=""> </div>
+            {% endif %}
+            
         </div>
     </div>
 
